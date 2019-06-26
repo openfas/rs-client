@@ -1,0 +1,62 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.openfas";
+option java_outer_classname = "OpenFas";
+option objc_class_prefix = "RTG";
+
+package openfas;
+
+// Interface exported by the server.
+service OpenFas {
+  // A client-to-server streaming RPC.
+  //
+  // Accepts a stream of point cloud frames , returning a
+  // frame summary when stream is completed.
+  rpc PCRoute(stream Frame) returns (FrameSummary) {}
+}
+
+
+message Frame {
+  int32 frameId = 1;
+  int32 height = 2;
+  int32 width = 3;
+  double time = 4;
+  //bytes data = 5;
+  DepthData depth = 5;
+  RGBData rgb = 6;
+  repeated int32 points = 7;
+}
+
+message DepthData {
+  repeated int32 points = 1;
+}
+
+message RGBData {
+  repeated int32 points = 1;
+}
+
+message FrameSummary {
+  // The number of point clouds received.
+  int32 point_cloud_count = 1;
+
+  // The last id of the point cloud received.
+  int32 last_id = 2;
+
+  // The amount of time elapsed.
+  int32 elapsed_time = 3;
+}
