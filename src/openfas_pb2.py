@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='openfas',
   syntax='proto3',
   serialized_options=_b('\n\017io.grpc.openfasB\007OpenFasP\001\242\002\003RTG'),
-  serialized_pb=_b('\n\ropenfas.proto\x12\x07openfas\"\x97\x01\n\x05\x46rame\x12\x0f\n\x07\x66rameId\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0c\n\x04time\x18\x04 \x01(\x01\x12!\n\x05\x64\x65pth\x18\x05 \x01(\x0b\x32\x12.openfas.DepthData\x12\x1d\n\x03rgb\x18\x06 \x01(\x0b\x32\x10.openfas.RGBData\x12\x0e\n\x06points\x18\x07 \x03(\x05\"\x1b\n\tDepthData\x12\x0e\n\x06points\x18\x01 \x03(\x05\"\x19\n\x07RGBData\x12\x0e\n\x06points\x18\x01 \x03(\x05\"P\n\x0c\x46rameSummary\x12\x19\n\x11point_cloud_count\x18\x01 \x01(\x05\x12\x0f\n\x07last_id\x18\x02 \x01(\x05\x12\x14\n\x0c\x65lapsed_time\x18\x03 \x01(\x05\x32?\n\x07OpenFas\x12\x34\n\x07PCRoute\x12\x0e.openfas.Frame\x1a\x15.openfas.FrameSummary\"\x00(\x01\x42\"\n\x0fio.grpc.openfasB\x07OpenFasP\x01\xa2\x02\x03RTGb\x06proto3')
+  serialized_pb=_b('\n\ropenfas.proto\x12\x07openfas\"h\n\x05\x46rame\x12\x0f\n\x07\x66rameId\x18\x01 \x01(\x05\x12\x0c\n\x04time\x18\x02 \x01(\x01\x12!\n\x05\x64\x65pth\x18\x03 \x01(\x0b\x32\x12.openfas.DepthData\x12\x1d\n\x03rgb\x18\x04 \x01(\x0b\x32\x10.openfas.RGBData\":\n\tDepthData\x12\x0e\n\x06points\x18\x01 \x03(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"8\n\x07RGBData\x12\x0e\n\x06points\x18\x01 \x03(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"P\n\x0c\x46rameSummary\x12\x19\n\x11point_cloud_count\x18\x01 \x01(\x05\x12\x0f\n\x07last_id\x18\x02 \x01(\x05\x12\x14\n\x0c\x65lapsed_time\x18\x03 \x01(\x05\x32?\n\x07OpenFas\x12\x34\n\x07PCRoute\x12\x0e.openfas.Frame\x1a\x15.openfas.FrameSummary\"\x00(\x01\x42\"\n\x0fio.grpc.openfasB\x07OpenFasP\x01\xa2\x02\x03RTGb\x06proto3')
 )
 
 
@@ -40,44 +40,23 @@ _FRAME = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='height', full_name='openfas.Frame.height', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='width', full_name='openfas.Frame.width', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='time', full_name='openfas.Frame.time', index=3,
-      number=4, type=1, cpp_type=5, label=1,
+      name='time', full_name='openfas.Frame.time', index=1,
+      number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='depth', full_name='openfas.Frame.depth', index=4,
-      number=5, type=11, cpp_type=10, label=1,
+      name='depth', full_name='openfas.Frame.depth', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='rgb', full_name='openfas.Frame.rgb', index=5,
-      number=6, type=11, cpp_type=10, label=1,
+      name='rgb', full_name='openfas.Frame.rgb', index=3,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='points', full_name='openfas.Frame.points', index=6,
-      number=7, type=5, cpp_type=1, label=3,
-      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -93,8 +72,8 @@ _FRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27,
-  serialized_end=178,
+  serialized_start=26,
+  serialized_end=130,
 )
 
 
@@ -112,6 +91,20 @@ _DEPTHDATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='openfas.DepthData.height', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='width', full_name='openfas.DepthData.width', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -124,8 +117,8 @@ _DEPTHDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=180,
-  serialized_end=207,
+  serialized_start=132,
+  serialized_end=190,
 )
 
 
@@ -143,6 +136,20 @@ _RGBDATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='openfas.RGBData.height', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='width', full_name='openfas.RGBData.width', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -155,8 +162,8 @@ _RGBDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=209,
-  serialized_end=234,
+  serialized_start=192,
+  serialized_end=248,
 )
 
 
@@ -200,8 +207,8 @@ _FRAMESUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=236,
-  serialized_end=316,
+  serialized_start=250,
+  serialized_end=330,
 )
 
 _FRAME.fields_by_name['depth'].message_type = _DEPTHDATA
@@ -249,8 +256,8 @@ _OPENFAS = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=318,
-  serialized_end=381,
+  serialized_start=332,
+  serialized_end=395,
   methods=[
   _descriptor.MethodDescriptor(
     name='PCRoute',

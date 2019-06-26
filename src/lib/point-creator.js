@@ -22,21 +22,40 @@ function runPCRoute(client, proto, callback) {
         callback();
     });
 
-    function pointSender(frameId, height, width, time, points) {
+    function pointSender(frameId, depth_data, depth_width, depth_height, color_data, color_width, color_height) {
         return function(callback) {
           console.log("Starting to send frameId: ", frameId);
-          var pc = {}
-          pc.frameId = frameId;
-          pc.height = height;
-          pc.width = width;
-          pc.time = time;
-          pc.points = [];
+          var frame = {}
+          frame.frameId = frameId;
+
+          var depth_frame = {}
+          depth_frame.height = depth_height
+          depth_frame.width = depth_width
+          depth_frame.points = []
+  
           
-          for (var i = 0; i < points.length; i++) {
-            pc.points.push(points[i]);
+  
+          for (var i = 0; i < depth_data.length; i++) {
+              depth_frame.points.push(depth_data[i]);
+          }
+  
+          
+  
+          var rgb_frame = {}
+          rgb_frame.height = color_height
+          rgb_frame.width = color_width
+          rgb_frame.points = []
+  
+          for (var i = 0; i < color_data.length; i++) {
+              rgb_frame.points.push(color_data[i]);
           }
 
-          call.write(pc);
+          frame.depth = depth_frame
+          frame.color = rgb_frame
+
+
+
+          call.write(frame);
 
           _.delay(callback, _.random(10, 15));
         };
@@ -47,12 +66,10 @@ function runPCRoute(client, proto, callback) {
     for (var i = 0; i < num_frames; i++) {
         const frameset = pipeline.waitForFrames();  // Get a set of frames
         const depth = frameset.depthFrame;  // Get depth data
-        //const depthRGB = colorizer.colorize(depth);  // Make depth image pretty
         const color = frameset.colorFrame;  // Get RGB image
-    
         depth_data = depth.getData();
         color_data = color.getData();
-        point_senders[i] = pointSender(i, depth.height, depth.width, i, depth_data);
+        point_senders[i] = pointSender(i, depth_data, depth.width, depth.height, color_data, color.width, color.height);
     }
 
     async.series(point_senders, function() {

@@ -33,21 +33,21 @@ service OpenFas {
 
 message Frame {
   int32 frameId = 1;
-  int32 height = 2;
-  int32 width = 3;
-  double time = 4;
-  //bytes data = 5;
-  DepthData depth = 5;
-  RGBData rgb = 6;
-  repeated int32 points = 7;
+  double time = 2;
+  DepthData depth = 3;
+  RGBData rgb = 4;
 }
 
 message DepthData {
   repeated int32 points = 1;
+  int32 height = 2;
+  int32 width = 3;
 }
 
 message RGBData {
   repeated int32 points = 1;
+  int32 height = 2;
+  int32 width = 3;
 }
 
 message FrameSummary {
